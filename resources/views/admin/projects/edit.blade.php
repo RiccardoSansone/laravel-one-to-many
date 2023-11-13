@@ -39,6 +39,37 @@
             <input type="text" class="form-control p-2" name="authors" id="authors" aria-describedby="help" placeholder="Write authors" value="{{ old('authors') }}">
             <small id="authorsHelper" class="form-text text-muted">write the authors of your project</small>
         </div>
+
+        <div class="mb-3">
+            <label for="githublink" class="form-label">Link Github</label>
+            <input type="url" class="form-control" name="githublink" id="githublink" aria-describedby="helpId" placeholder="Scrivi una descrizione per il tuo progetto" value="{{ old('githublink', $project->githublink) }}">
+            <small id="githublinkHelper" class="form-text text-muted">Scrivi un link Github per il tuo progetto</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="projectlink" class="form-label">Link Progetto</label>
+            <input type="url" class="form-control" name="projectlink" id="projectlink" aria-describedby="helpId" placeholder="Scrivi una descrizione per il tuo progetto" value="{{ old('projectlink', $project->projectlink) }}">
+            <small id="projectlinkHelper" class="form-text text-muted">Scrivi un link Github per il tuo progetto</small>
+        </div>
+        
+        <div class="mb-3">
+            <label for="type_id" class="form-label">typologies</label>
+            <select class="form-select @error('type_id') is-invalid  @enderror" name="type_id" id="type_id">
+                <option selected disabled>Select a tecnologies</option>
+                <option value="">Untyped</option>
+        
+                @forelse ($types as $type)
+                <option value="{{$type->id}}" {{ $type->id == old('type_id') ? 'selected' : '' }}>{{$type->type}}</option>
+                @empty
+        
+                @endforelse
+        
+        
+            </select>
+        </div>
+        @error('type_id')
+        <div class="text-danger">{{$message}}</div>
+        @enderror
         
         <div class="mb-3">
             <label for="thumb" class="form-label">Scegli una immagine</label>

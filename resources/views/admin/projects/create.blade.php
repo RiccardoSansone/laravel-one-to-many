@@ -40,11 +40,23 @@
         </div>
 
         <div class="mb-3">
+            <label for="githublink" class="form-label">Link Github</label>
+            <input type="url" class="form-control" name="githublink" id="githublink" aria-describedby="helpId" placeholder="Scrivi una descrizione per il tuo progetto" value="{{ old('githublink') }}">
+            <small id="githublinkHelper" class="form-text text-muted">Scrivi il link del tuo progetto github</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="projectlink" class="form-label">Link Progetto</label>
+            <input type="url" class="form-control" name="projectlink" id="projectlink" aria-describedby="helpId" placeholder="Scrivi una descrizione per il tuo progetto" value="{{ old('projectlink') }}">
+            <small id="projectlinkHelper" class="form-text text-muted">Scrivi il link del tuo progetto github</small>
+        </div>
+
+        <div class="mb-3">
             <label for="thumb" class="form-label">Scegli una immagine</label>
             <input type="file" class="form-control" name="thumb" id="thumb" placeholder="Scegli una immagine per il tuo progetto" aria-describedby="thumb_helper" value="{{ old('thumb') }}">
             <div id="thumb_helper" class="form-text">Inserisci una immagine</div>
         </div>
-        
+
         <div class="mb-3">
             <label for="type_id" class="form-label">typologies</label>
             <select class="form-select @error('type_id') is-invalid  @enderror" name="type_id" id="type_id">
