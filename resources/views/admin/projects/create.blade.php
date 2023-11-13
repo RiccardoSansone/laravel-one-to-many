@@ -44,28 +44,30 @@
             <input type="file" class="form-control" name="thumb" id="thumb" placeholder="Scegli una immagine per il tuo progetto" aria-describedby="thumb_helper" value="{{ old('thumb') }}">
             <div id="thumb_helper" class="form-text">Inserisci una immagine</div>
         </div>
+        
+        <div class="mb-3">
+            <label for="type_id" class="form-label">typologies</label>
+            <select class="form-select @error('type_id') is-invalid  @enderror" name="type_id" id="type_id">
+                <option selected disabled>Select a tecnologies</option>
+                <option value="">Untyped</option>
+        
+                @forelse ($types as $type)
+                <option value="{{$type->id}}" {{ $type->id == old('type_id') ? 'selected' : '' }}>{{$type->type}}</option>
+                @empty
+        
+                @endforelse
+        
+        
+            </select>
+        </div>
+        @error('type_id')
+        <div class="text-danger">{{$message}}</div>
+        @enderror
 
         <button type="submit" class="btn btn-primary 3">Add Project</button>
     </form>
 </div>
 
-<div class="mb-3">
-    <label for="type_id" class="form-label">typologies</label>
-    <select class="form-select @error('type_id') is-invalid  @enderror" name="type_id" id="type_id">
-        <option selected disabled>Select a tecnologies</option>
-        <option value="">Untyped</option>
 
-        @forelse ($types as $type)
-        <option value="{{$type->id}}" {{ $type->id == old('type_id') ? 'selected' : '' }}>{{$type->type}}</option>
-        @empty
-
-        @endforelse
-
-
-    </select>
-</div>
-@error('type_id')
-<div class="text-danger">{{$message}}</div>
-@enderror
 
 @endsection

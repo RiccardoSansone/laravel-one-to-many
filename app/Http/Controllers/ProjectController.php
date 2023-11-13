@@ -43,6 +43,9 @@ class ProjectController extends Controller
             'description' => 'nullable|max:1000|min:2',
             'authors' => 'nullable|max:50|min:2',
             'thumb' => 'nullable|mimes:jpg,bmp,png|max:300',
+            'projectlink' => 'nullable|url:http,https',
+            'githublink' => 'nullable|url:http,https',
+
         ]);
 
         $project = new Project();
@@ -59,6 +62,7 @@ class ProjectController extends Controller
         $project->description = $request->description;
         $project->title = $request->title;
         $project->authors = $request->authors;
+        $project->type_id = $request->type_id;
         $project->save();
         return to_route('project.index');
 

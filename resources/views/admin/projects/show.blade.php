@@ -14,6 +14,7 @@
                 <th scope="col">AUTHOR</th>
                 <th scope="col">GITHUBLINK</th>
                 <th scope="col">PROJECTLINK</th>
+                <th scope="col">TECNOLOGY</th>
 
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                     <td>{{$project->authors}}</td>
                     <td><a href="{{$project->projectlink}}">{{$project->projectlink}}</a></td>
                     <td><a href="{{$project->githublink}}">{{$project->githublink}}</a></td>
+                    <td>{{$project->type ? $project->type->type : 'tecnology not selected'}}</td>
                 </tr>
 
         </tbody>
