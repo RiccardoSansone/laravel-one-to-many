@@ -15,7 +15,8 @@ class Project extends Model
         'authors',
         'thumb',
         'projectlink',
-        'projectgithub'
+        'projectgithub',
+        'type_id'
     ];
 
     public function type(): BelongsTo {
